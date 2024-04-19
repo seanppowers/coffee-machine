@@ -28,16 +28,30 @@ def enter_coins():
     enter_coins.customer_quarters = 0
     enter_coins.customer_dimes = 0
     enter_coins.customer_nickles = 0
-
     enter_coins.quarter_input = input("Enter quarters: ")
+
+    if not enter_coins.quarter_input.isnumeric():
+        print("Please enter a numeric value.")
+        enter_coins();
+
     enter_coins.customer_quarters += float(enter_coins.quarter_input) * constants.QUARTER_VALUE
     enter_coins.customer_money += enter_coins.customer_quarters
 
     enter_coins.dime_input = input("Enter dimes: ")
+
+    if not enter_coins.dime_input.isnumeric():
+        print("Please enter a numeric value.")
+        enter_coins();
+
     enter_coins.customer_dimes += float(enter_coins.dime_input) * constants.DIME_VALUE
     enter_coins.customer_money += enter_coins.customer_dimes
 
     enter_coins.nickle_input = input("Enter nickles: ")
+
+    if not enter_coins.nickle_input.isnumeric():
+        print("Please enter a numeric value.")
+        enter_coins();
+
     enter_coins.customer_nickles += float(enter_coins.nickle_input) * constants.DIME_VALUE
     enter_coins.customer_money += enter_coins.customer_nickles
 
@@ -71,7 +85,7 @@ def dispense_cappuccino():
 
 
 def user_choice():
-    user_input = input('What would you like? (espresso/latte/cappuccino): ')
+    user_input = input('What would you like? (espresso/latte/cappuccino/report/off): ')
     if user_input == 'report':
         report()
         user_choice()
@@ -124,6 +138,9 @@ def user_choice():
         else:
             print(constants.ERROR_INSUFFICIENT_PAYMENT)
             user_choice()
+    else:
+        print(constants.ERROR_INVALID_ENTRY)
+        user_choice()
 
 
 user_choice()

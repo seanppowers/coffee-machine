@@ -2,6 +2,7 @@ import machine_templates
 
 ERROR_INSUFFICIENT_RESOURCES = 'Sorry there are not enough resources to make your drink.'
 ERROR_INSUFFICIENT_PAYMENT = "Money refunded. Please enter the correct amount of money to purchase your drink."
+ERROR_INVALID_ENTRY = "Invalid entry. Try again"
 
 ESPRESSO_PRICE = machine_templates.MENU.get("espresso").get("cost")
 LATTE_PRICE = machine_templates.MENU.get("latte").get("cost")
